@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Web App 1</title>
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="/css/style.css">
 	</head>
 
 	<body>
@@ -24,16 +24,30 @@
 		</nav>
 
 		<main>
-			<h2 class="title">Sistema Horario -> Grados Sexagesimales</h2>
-			<form id="tierra_form">
-				<label for="horas">Horas:</label>
-				<input type="number" id="horas_input" name="horas_input" placeholder="Horas">
-				<label for="Minutos">Minutos:</label>
-				<input type="number" id="minutos_input" name="minutos_input" placeholder="Horas">
-				<label for="Segundos">Segundos:</label>
-				<input type="number" id="segundos_input" name="segundos_input" placeholder="Horas">
+			<h2 class="title">Sistema Horario -> Grado Sexagesimal</h2>
+			<form id="tierra_form" onsubmit="sistemaHorarioaSistemaSexagesimal()">
+				<label for="horas_input">Horas:</label>
+				<input type="number" id="horas_input" placeholder="Horas" min="0" max="24">
+
+				<label for="minutos_input">Minutos:</label>
+				<input type="number" id="minutos_input" placeholder="Minutos" min="0" max="59">
+
+				<label for="segundos_input">Segundos:</label>
+				<input type="number" id="segundos_input" placeholder="Segundos" min="0" max="59">
+
+				<button type="submit">Calcular</button>
+
+				<hr>
+
+				<p>
+					Grados°: <span id="grados_ss"></span>°<br>
+					Minutos': <span id="minutos_ss"></span>'<br>
+					Segundos'': <span id="segundos_ss"></span>''<br>
+				</p>
 			</form>
 		</main>
+
+		<script src="/js/tiempoaSexagesimal.js"></script>
 	</body>
 
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Web App 1</title>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
+
+	<body>
+		<header>
+			<h1 class="title">Sumar Segundos</h1>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="cajero-electronico.html">Cajero Electrónico</a></li>
+				<li><a href="recorrido-tierra.html">Recorrido Tierra</a></li>
+				<li><a href="sumar-segundos.html">Suma Resta Segundos</a></li>
+			</ul>
+		</nav>
+
+		<main>
+			<h2 class="title">Sumar Segundos Horario</h2>
+			<form id="suma_form" onsubmit="sumarSegundos()">
+				<div>
+					<label for="horas_input">Horas:</label>
+					<input type="number" id="horas_input" placeholder="Horas" min="0" max="24">
+
+					<label for="minutos_input">Minutos:</label>
+					<input type="number" id="minutos_input" placeholder="Minutos" min="0" max="60">
+
+					<label for="segundos_h_input">Segundos:</label>
+					<input type="number" id="segundos_h_input" placeholder="Segundos" min="0"
+						max="60">
+				</div>
+				<div>
+					<label for="segundos_d_input">+</label>
+					<input type="number" id="segundos_d_input" placeholder="Adicionar" min="0" required>
+					<span>s</span>
+				</div>
+
+				<button type="submit">Sumar</button>
+
+				<hr>
+
+				<p>
+					Horas: <span id="horas_t"></span><br>
+					Minutos: <span id="minutos_t"></span><br>
+					Segundos: <span id="segundos_t"></span><br>
+				</p>
+			</form>
+		</main>
+
+		<script src="/js/sumarSegundos.js"></script>
+	</body>
+
+</html>
