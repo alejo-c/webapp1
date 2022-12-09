@@ -15,10 +15,14 @@ const operar = () => {
 	segundosH = segundosH ? parseInt(segundosH) : 0
 
 	let aux1 = segundosD / 3600,
-		horas = Math.round(aux1),
+		horas = Math.floor(aux1),
 		aux2 = (aux1 - horas) * 60,
-		minutos = Math.round(aux2),
+		minutos = Math.floor(aux2),
 		segundos = Math.round((aux2 - minutos) * 60)
+	
+	console.log('horas ' + horas);
+	console.log('minutos ' + minutos);
+	console.log('segundos ' + segundos);
 
 	if (segundos >= 60) {
 		segundos -= 60
@@ -48,11 +52,15 @@ const operar = () => {
 		}
 	}
 
-	cambiarTexto(horasH, minutosH, segundosH)
+	cambiarTexto(
+		`Horas: ${horasH}h`,
+		`Minutos: ${minutosH}m`,
+		`Segundos: ${segundosH}s`
+	)
 }
 
 const cambiarTexto = (grados = '', minutos = '', segundos = '') => {
-	document.getElementById('horas_t').innerText = `Horas: ${grados}h`
-	document.getElementById('minutos_t').innerText = `Minutos: ${minutos}m`
-	document.getElementById('segundos_t').innerText = `Segundos: ${segundos}s`
+	document.getElementById('horas_t').innerText = grados
+	document.getElementById('minutos_t').innerText = minutos
+	document.getElementById('segundos_t').innerText = segundos
 }

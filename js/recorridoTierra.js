@@ -3,7 +3,7 @@ const tierraForm = document.getElementById('tierra_form')
 tierraForm.addEventListener('submit', e => e.preventDefault())
 tierraForm.addEventListener('reset', () => cambiarTexto())
 
-const sistemaHorarioaSistemaSexagesimal = () => {
+const calcularRecorridoTierra = () => {
 	// Sistema Horario
 	let horasH = document.getElementById('horas_input').value,
 		minutosH = document.getElementById('minutos_input').value,
