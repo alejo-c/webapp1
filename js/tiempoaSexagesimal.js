@@ -1,45 +1,49 @@
-let tierra_form = document.getElementById('tierra_form')
+const tierraForm = document.getElementById('tierra_form')
 
-tierra_form.addEventListener('submit', (e) => {
-	e.preventDefault()
-})
+tierraForm.addEventListener('submit', e => e.preventDefault())
+tierraForm.addEventListener('reset', () => cambiarTexto())
 
-let sistemaHorarioaSistemaSexagesimal = () => {
+const sistemaHorarioaSistemaSexagesimal = () => {
 	// Sistema Horario
-	let horas_h = document.getElementById('horas_input').value
-	let minutos_h = document.getElementById('minutos_input').value
-	let segundos_h = document.getElementById('segundos_input').value
+	let horasH = document.getElementById('horas_input').value,
+		minutosH = document.getElementById('minutos_input').value,
+		segundosH = document.getElementById('segundos_input').value
 
-	if (!horas_h && !minutos_h && !segundos_h)
-		return
+	if (!horasH && !minutosH && !segundosH) return
 
-	horas_h = horas_h ? parseInt(horas_h) : 0
-	minutos_h = minutos_h ? parseInt(minutos_h) : 0
-	segundos_h = segundos_h ? parseInt(segundos_h) : 0
+	horasH = horasH ? parseInt(horasH) : 0
+	minutosH = minutosH ? parseInt(minutosH) : 0
+	segundosH = segundosH ? parseInt(segundosH) : 0
 
-	if (horas_h == 24 && (minutos_h || segundos_h))
-		return
+	if (horasH == 24 && (minutosH || segundosH)) return
 
-	// Grados sistema decimal
-	// 1 hora = 15 grados
-	let grados_d = (horas_h + minutos_h / 60 + segundos_h / 3600) * 15
+	// Grados sistema decimal (1 hora = 15 grados)
+	let gradosD = (horasH + minutosH / 60 + segundosH / 3600) * 15
 
 	// Sistema Sexagesimal
-	let grados_s = Math.floor(grados_d)
-	let aux = (grados_d - grados_s) * 60
-	let minutos_s = Math.floor(aux)
-	let segundos_s = Math.floor((aux - minutos_s) * 60)
+	let gradosS = Math.floor(gradosD),
+		aux = (gradosD - gradosS) * 60,
+		minutosS = Math.floor(aux),
+		segundosS = Math.floor((aux - minutosS) * 60)
 
-	if (segundos_s >= 60) {
-		minutos_s += 1
-		segundos_s -= 1
+	if (segundosS >= 60) {
+		segundosS = 0
+		minutosS += segundosS - 60
 	}
-	if (minutos_s >= 60) {
-		grados_s += 1
-		minutos_s -= 1
+	if (minutosS >= 60) {
+		minutosS = 0
+		gradosS += minutosS - 60
 	}
 
-	document.getElementById('grados_ss').innerText = grados_s
-	document.getElementById('minutos_ss').innerText = minutos_s
-	document.getElementById('segundos_ss').innerText = segundos_s
+	cambiarTexto(
+		`Grados: ${gradosS}°`,
+		`Minutos: ${minutosS}'`,
+		`Segundos: ${segundosS}''`
+	)
+}
+
+const cambiarTexto = (grados = '', minutos = '', segundos = '') => {
+	document.getElementById('grados_ss').innerText = grados
+	document.getElementById('minutos_ss').innerText = minutos
+	document.getElementById('segundos_ss').innerText = segundos
 }
