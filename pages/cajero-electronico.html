@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 	<head>
 		<meta charset="UTF-8">
@@ -10,16 +10,12 @@
 	</head>
 
 	<body>
-		<header>
-			<h1 class="title">Cajero Electrónico</h1>
-		</header>
-
 		<nav>
 			<ul>
 				<li><a href="/">Inicio</a></li>
-				<li><a href="cajero-electronico.html">Cajero Electrónico</a></li>
-				<li><a href="recorrido-tierra.html">Recorrido Tierra</a></li>
-				<li><a href="sumar-segundos.html">Suma Resta Segundos</a></li>
+				<li><a href="/pages/cajero-electronico.html">Cajero Electrónico</a></li>
+				<li><a href="/pages/recorrido-tierra.html">Recorrido Tierra</a></li>
+				<li><a href="/pages/sumar-segundos.html">Suma Resta Segundos</a></li>
 			</ul>
 		</nav>
 
@@ -33,6 +29,7 @@
 						min="50000" max="1200000" step="5000" required>
 				</div>
 				<button type="submit">Retirar</button>
+				<button type="reset">Borrar</button>
 			</form>
 
 			<p id="text_msg"></p>
@@ -40,7 +37,7 @@
 			<ul id="retiro_list"></ul>
 		</main>
 
-		<script src="/js/retirarCajero.js"></script>
+		<script src="/js/retirar.js"></script>
 	</body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 	<head>
 		<meta charset="UTF-8">
@@ -10,41 +10,37 @@
 	</head>
 
 	<body>
-		<header>
-			<h1 class="title">Recorrido de la tierra</h1>
-		</header>
-
 		<nav>
 			<ul>
 				<li><a href="/">Inicio</a></li>
-				<li><a href="cajero-electronico.html">Cajero Electrónico</a></li>
-				<li><a href="recorrido-tierra.html">Recorrido Tierra</a></li>
-				<li><a href="sumar-segundos.html">Suma Resta Segundos</a></li>
+				<li><a href="/pages/cajero-electronico.html">Cajero Electrónico</a></li>
+				<li><a href="/pages/recorrido-tierra.html">Recorrido Tierra</a></li>
+				<li><a href="/pages/sumar-segundos.html">Suma Resta Segundos</a></li>
 			</ul>
 		</nav>
 
 		<main>
 			<h2 class="title">Sistema Horario -> Grado Sexagesimal</h2>
+
 			<form id="tierra_form" onsubmit="sistemaHorarioaSistemaSexagesimal()">
 				<label for="horas_input">Horas:</label>
-				<input type="number" id="horas_input" placeholder="Horas" min="0" max="24">
+				<input type="number" id="horas_input" placeholder="0" min="0" max="24">
 
 				<label for="minutos_input">Minutos:</label>
-				<input type="number" id="minutos_input" placeholder="Minutos" min="0" max="59">
+				<input type="number" id="minutos_input" placeholder="0" min="0" max="59">
 
 				<label for="segundos_input">Segundos:</label>
-				<input type="number" id="segundos_input" placeholder="Segundos" min="0" max="59">
+				<input type="number" id="segundos_input" placeholder="0" min="0" max="59">
 
 				<button type="submit">Calcular</button>
-
-				<hr>
-
-				<p>
-					Grados°: <span id="grados_ss"></span>°<br>
-					Minutos': <span id="minutos_ss"></span>'<br>
-					Segundos'': <span id="segundos_ss"></span>''<br>
-				</p>
+				<button type="reset">Borrar</button>
 			</form>
+
+			<p>
+			<div id="grados_ss"></div>
+			<div id="minutos_ss"></div>
+			<div id="segundos_ss"></div>
+			</p>
 		</main>
 
 		<script src="/js/tiempoaSexagesimal.js"></script>
