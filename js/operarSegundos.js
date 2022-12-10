@@ -38,14 +38,22 @@ const operar = () => {
 	minutosH += minutosAH * (sub_radio ? -1 : 1)
 	segundosH += segundosAH * (sub_radio ? -1 : 1)
 
-	// Corregir valores si en la resta el resultado fue negativo
+	// Corregir valores si los segundos o minutos están fuera del rango
+	if (segundosH >= 60) {
+		segundosH -= 60
+		minutosH++
+	}
+	if (minutosH >= 60) {
+		minutosH -= 60
+		horasH++
+	}
 	if (segundosH < 0) {
 		segundosH += 60
-		minutosH -= Math.round(segundosH / 60)
+		minutosH--
 	}
 	if (minutosH < 0) {
 		minutosH += 60
-		horasH -= Math.round(minutosH / 60)
+		horasH--
 	}
 
 	setResultText('',
