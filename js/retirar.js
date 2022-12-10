@@ -8,15 +8,15 @@ cajeroForm.addEventListener('submit', e => e.preventDefault())
 cajeroForm.addEventListener('reset', () => reset())
 
 const retirar = () => {
+	// Vaciar la lista de retiro de dinero ante un nuevo retiro
+	clearList(retiroList)
+
 	// Tipos de billetes que se pueden retirar 
 	const billetes = [50000, 20000, 10000, 5000],
 		// Arreglo que almacena la cantidad y el tipo de billetes retirados
 		retiroTotal = []
 	// Dinero a retirar
 	let dinero = document.getElementById('dinero_input').value
-
-	// Vaciar la lista de retiro de dinero ante un nuevo retiro
-	clearList(retiroList)
 
 	// Para cada billete de mayor a menor denominación
 	for (const billete of billetes) {
