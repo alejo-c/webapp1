@@ -1,39 +1,38 @@
 const tierraForm = document.getElementById('tierra_form')
 
+// Prevenir la recarga de la pagina al enviar (submit) el formulario
 tierraForm.addEventListener('submit', e => e.preventDefault())
 tierraForm.addEventListener('reset', () => cambiarTexto())
 
 const calcularRecorridoTierra = () => {
-	// Sistema Horario
-	let horasH = document.getElementById('horas_input').value,
-		minutosH = document.getElementById('minutos_input').value,
-		segundosH = document.getElementById('segundos_input').value
+	// Variables del Sistema Horario [H]
+	let horasH = document.getElementById('horas_input').value, // string
+		minutosH = document.getElementById('minutos_input').value, // string
+		segundosH = document.getElementById('segundos_input').value // string
 
+	// Si todos los valores de las cadenas de caracteres son nulos, detener la función
 	if (!horasH && !minutosH && !segundosH) return
 
-	horasH = horasH ? parseInt(horasH) : 0
-	minutosH = minutosH ? parseInt(minutosH) : 0
-	segundosH = segundosH ? parseInt(segundosH) : 0
+	// Si la cadena de caracteres tiene algún caracter, convertirlo a entero
+	// Si está vacía se le asina cero (0)
+	horasH = horasH ? parseInt(horasH) : 0 // int
+	minutosH = minutosH ? parseInt(minutosH) : 0 // int
+	segundosH = segundosH ? parseInt(segundosH) : 0 // int
 
+	// Si se ingreso un valor de 24 horas ...
+	// ... y los minutos o segundos son mayores a 0, detener la función
 	if (horasH == 24 && (minutosH || segundosH)) return
 
-	// Grados sistema decimal (1 hora = 15 grados)
+	// Grados Sistema Decimal [D] (1 hora = 15 grados)
+	// Convertir los minutos y segundos a horas ...
+	// ... sumar y luego convertir a grados
 	let gradosD = (horasH + minutosH / 60 + segundosH / 3600) * 15
 
-	// Sistema Sexagesimal
-	let gradosS = Math.floor(gradosD),
-		aux = (gradosD - gradosS) * 60,
-		minutosS = Math.floor(aux),
-		segundosS = Math.floor((aux - minutosS) * 60)
-
-	if (segundosS >= 60) {
-		segundosS = 0
-		minutosS += segundosS - 60
-	}
-	if (minutosS >= 60) {
-		minutosS = 0
-		gradosS += minutosS - 60
-	}
+	// Variables del Sistema Sexagesimal [S]
+	let gradosS = Math.floor(gradosD), // Parte entera de gradosD
+		aux = (gradosD - gradosS) * 60, // Parte no entera de gradosD convertida a minutos
+		minutosS = Math.floor(aux), // Minutos en valor entero
+		segundosS = Math.round((aux - minutosS) * 60) // Segundos en valor entero
 
 	cambiarTexto(
 		`Grados: ${gradosS}°`,
