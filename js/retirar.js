@@ -1,16 +1,17 @@
 const cajeroForm = document.getElementById('cajero_form')
 const retiroList = document.getElementById('retiro_list')
+const text_msg = document.getElementById('text_msg')
 
 // Prevenir la recarga de la pagina al enviar (submit) el formulario
 cajeroForm.addEventListener('submit', e => e.preventDefault())
-// Vaciar la lista de retiro de dinero 
-cajeroForm.addEventListener('reset', () => clearList(retiroList))
+// Vaciar la lista de retiro de dinero y el mensaje de texto
+cajeroForm.addEventListener('reset', () => reset())
 
 const retirar = () => {
 	// Tipos de billetes que se pueden retirar 
 	const billetes = [50000, 20000, 10000, 5000],
-	// Arreglo que almacena la cantidad y el tipo de billetes retirados
-		retiroTotal = [] 
+		// Arreglo que almacena la cantidad y el tipo de billetes retirados
+		retiroTotal = []
 	// Dinero a retirar
 	let dinero = document.getElementById('dinero_input').value
 
@@ -32,9 +33,14 @@ const retirar = () => {
 		if (!dinero) break
 	}
 
-	document.getElementById('text_msg').innerText = 'Retiro Completado. Billetes:'
+	text_msg.innerText = 'Retiro Completado. Billetes:'
 	// Agregar los billetes del arreglo a la lista
 	addListItems(retiroList, retiroTotal)
+}
+
+const reset = () => {
+	text_msg.innerText = ''
+	clearList(retiroList)
 }
 
 const clearList = list => {
