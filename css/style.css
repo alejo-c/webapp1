@@ -150,3 +150,13 @@ input:-webkit-autofill:focus {
 	box-shadow: .3em .3em 45px black;
 	color: #fff;
 }
+
+.msg {
+	color: #99aab5;
+	font-weight: bolder;
+}
+
+.err {
+	color: #ed4245;
+	font-weight: bolder;
+}
