@@ -16,7 +16,7 @@ const operar = () => {
 		sub_radio = document.getElementById('sub_radio').checked // boolean
 
 	// Si la cadena de caracteres tiene algún caracter, convertirlo a entero
-	// Si está vacía se le asina cero (0)
+	// Si está vacía se le asigna cero (0)
 	horasH = horasH ? parseInt(horasH) : 0 // int
 	minutosH = minutosH ? parseInt(minutosH) : 0 // int
 	segundosH = segundosH ? parseInt(segundosH) : 0 // int
