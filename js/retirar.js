@@ -13,20 +13,20 @@ const retirar = () => {
 
 	// Tipos de billetes que se pueden retirar 
 	const billetes = [50000, 20000, 10000, 5000],
-		// Arreglo que almacena la cantidad y el tipo de billetes retirados
+	// Arreglo que almacena la cantidad y el tipo de billetes retirados
 		retiroTotal = []
 	// Dinero a retirar
 	let dinero = document.getElementById('dinero_input').value
 
 	// Para cada billete de mayor a menor denominación
 	for (const billete of billetes) {
-		// Cantidad de billetes de un tipo que puedo retirar
+		// Cantidad de billetes de un tipo que se puede retirar
 		let cantidad = Math.floor(dinero / billete)
 		// Si cantidad > 0 -> true, es posible retirar billetes
 		// Si cantidad == 0 -> false
 		if (cantidad) {
 			retiroTotal.push(`${cantidad} x ${billete}`)
-			// Despues de retirar, ahora el dinero ahora es el residuo de la división
+			// Despues de retirar, ahora el dinero es el residuo de la división
 			dinero %= billete
 		}
 		// Si no hay dinero no se evaluan los demas billetes y cierra el ciclo
