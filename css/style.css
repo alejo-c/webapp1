@@ -117,6 +117,38 @@ input:-webkit-autofill:focus {
 	caret-color: #fff;
 }
 
+#custom {
+	display: flex;
+	margin-block: .5em;
+}
+
+#custom input {
+	margin: 0;
+	border-radius: 0;
+}
+
+.spinner {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	font-size: 1.2em;
+}
+
+#step_down_button {
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+}
+
+#step_up_button {
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
+}
+
+.spinner:active {
+	background-color: #2c2f33;
+}
+
 .radio-buttons {
 	margin-block: 1.3em;
 }
