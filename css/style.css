@@ -135,12 +135,12 @@ input:-webkit-autofill:focus {
 	font-size: 1.2em;
 }
 
-#step_down_button {
+#step_down_btn {
 	border-top-left-radius: 1em;
 	border-bottom-left-radius: 1em;
 }
 
-#step_up_button {
+#step_up_btn {
 	border-top-right-radius: 1em;
 	border-bottom-right-radius: 1em;
 }
