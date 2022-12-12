@@ -20,41 +20,45 @@
 		</nav>
 
 		<main>
-			<h2 class="title">Sumar / Restar Segundos</h2>
+			<h3 class="title">Sumar / Restar Segundos</h3>
 
 			<form id="suma_form" onsubmit="operar()">
-				<div>
-					<label for="horas_input">Horas:</label>
-					<input type="number" id="horas_input" placeholder="0" min="0" max="24">
+				<label for="horas_input">Horas:</label>
+				<input type="number" id="horas_input" placeholder="0" min="0" max="24">
 
-					<label for="minutos_input">Minutos:</label>
-					<input type="number" id="minutos_input" placeholder="0" min="0" max="60">
+				<label for="minutos_input">Minutos:</label>
+				<input type="number" id="minutos_input" placeholder="0" min="0" max="60">
 
-					<label for="segundos_h_input">Segundos:</label>
-					<input type="number" id="segundos_h_input" placeholder="0" min="0" max="60">
+				<label for="segundos_h_input">Segundos:</label>
+				<input type="number" id="segundos_h_input" placeholder="0" min="0" max="60">
+
+				<div class="radio-buttons">
+					<input type="radio" name="opt_radio" id="add_radio" class="radio" checked>
+					<label for="add_radio">+</label>
+					<input type="radio" name="opt_radio" id="sub_radio" class="radio">
+					<label for="sub_radio">-</label>
 				</div>
-				<div>
-					<div class="radio-buttons">
-						<input type="radio" name="opt_radio" id="add_radio" class="radio" checked>
-						<label for="add_radio">+</label>
-						<input type="radio" name="opt_radio" id="sub_radio" class="radio">
-						<label for="sub_radio">-</label>
-					</div>
-					<input type="number" id="segundos_d_input" placeholder="Segundos" min="0"
-						required>
-				</div>
+				<input type="number" id="segundos_d_input" placeholder="Segundos" min="0" required>
 
 				<button type="submit">Calcular</button>
 				<button type="reset">Borrar</button>
 			</form>
 
-			<p>
-			<div id="err_msg" class="err"></div>
-			<div id="horas_t" class="msg"></div>
-			<div id="minutos_t" class="msg"></div>
-			<div id="segundos_t" class="msg"></div>
-			</p>
+			<div>
+				<div id="err_msg" class="err"></div>
+				<div id="horas_t" class="msg"></div>
+				<div id="minutos_t" class="msg"></div>
+				<div id="segundos_t" class="msg"></div>
+			</div>
 		</main>
+
+		<footer>
+			<a id="web" href="https://webappux1.web.app" target="_blank">Página pública:
+				WebAppUX1</a>
+			<span id="author"><strong>Autor:</strong> José Alejandro Castrillón</span>
+			<a id="repo" href="https://github.com/alejo-c/webapp1" target="_blank">Repositorio en
+				GitHub</a>
+		</footer>
 
 		<script src="/js/app.js"></script>
 		<script src="/js/operarSegundos.js"></script>
