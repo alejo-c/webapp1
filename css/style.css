@@ -11,6 +11,11 @@ body {
 	text-align: center;
 }
 
+a {
+	display: inline-block;
+	color: white;
+}
+
 nav {
 	text-align: center;
 	background-color: #23272a;
@@ -30,11 +35,8 @@ nav li {
 }
 
 nav a {
-	display: block;
 	padding: 1em;
 	text-decoration: none;
-	color: white;
-
 }
 
 nav a:hover, .active {
@@ -56,14 +58,16 @@ h2 {
 }
 
 main {
+	display: inline-block;
 	width: 21em;
 	background-color: #23272a;
 	border-radius: 1em;
 	margin-top: 2.5em;
 	margin-inline: auto;
-	padding: 1.5em;
+	padding: 1em;
 	font-family: 'Courier New';
-	box-shadow: 0px 0px 30px black;
+	box-shadow: 0px 0px 27px black;
+	margin-bottom: 6em;
 }
 
 button {
@@ -150,7 +154,7 @@ input:-webkit-autofill:focus {
 }
 
 .radio-buttons {
-	margin-block: 1.3em;
+	margin-block: .5em;
 }
 
 .radio {
@@ -191,4 +195,19 @@ input:-webkit-autofill:focus {
 .err {
 	color: #ed4245;
 	font-weight: bolder;
+	margin-top: 1em;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #23272a;
+}
+
+footer>* {
+	margin-block: .6em;
+	margin-inline: 1.6vw;
+	font-size: 1.2em;
+	font-family: monospace;
 }
