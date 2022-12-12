@@ -1,19 +1,19 @@
-const operacionForm = document.getElementById('suma_form')
+const operacionForm = getById('suma_form')
 
-operacionForm.addEventListener('submit', e => e.preventDefault())
-operacionForm.addEventListener('reset', () => setResultText())
+addEvent(operacionForm, 'submit', e => e.preventDefault())
+addEvent(operacionForm, 'reset', () => setResultText(''))
 
 const operar = () => {
-	setResultText()
+	setResultText('')
 
 	// Variables del Sistema Horario [H]
-	let horasH = document.getElementById('horas_input').value, // string
-		minutosH = document.getElementById('minutos_input').value, // string
-		segundosH = document.getElementById('segundos_h_input').value, // string
+	let horasH = getById('horas_input').value, // string
+		minutosH = getById('minutos_input').value, // string
+		segundosH = getById('segundos_h_input').value, // string
 		// Segundos adicionales [A] del Sistema Decimal [D]
-		segundosAD = parseInt(document.getElementById('segundos_d_input').value), // int
+		segundosAD = parseInt(getById('segundos_d_input').value), // int
 		// Valor booleano que indica si se seleccionó la opción de restar
-		sub_radio = document.getElementById('sub_radio').checked // boolean
+		sub_radio = getById('sub_radio').checked // boolean
 
 	// Si la cadena de caracteres tiene algún caracter, convertirlo a entero
 	// Si está vacía se le asigna cero (0)
@@ -57,15 +57,15 @@ const operar = () => {
 	}
 
 	setResultText('',
-		`Horas: ${horasH}h`,
-		`Minutos: ${minutosH}m`,
-		`Segundos: ${segundosH}s`
+		`Horas: ${horasH} h`,
+		`Minutos: ${minutosH} m`,
+		`Segundos: ${segundosH} s`
 	)
 }
 
-const setResultText = (err_msg = '', grados = '', minutos = '', segundos = '') => {
-	document.getElementById('err_msg').innerText = err_msg
-	document.getElementById('horas_t').innerText = grados
-	document.getElementById('minutos_t').innerText = minutos
-	document.getElementById('segundos_t').innerText = segundos
+const setResultText = (err_msg, grados = '', minutos = '', segundos = '') => {
+	getById('err_msg').innerText = err_msg
+	getById('horas_t').innerText = grados
+	getById('minutos_t').innerText = minutos
+	getById('segundos_t').innerText = segundos
 }

@@ -1,19 +1,14 @@
-const cajeroForm = document.getElementById('cajero_form'),
-	dinero_input = document.getElementById('dinero_input'),
-
-	stepUpButton = document.getElementById('step_up_button'),
-	stepDownButton = document.getElementById('step_down_button'),
-
-	retiroList = document.getElementById('retiro_list'),
-	textMsg = document.getElementById('text_msg')
+const cajeroForm = getById('cajero_form'),
+	dinero_input = getById('dinero_input'),
+	retiroList = getById('retiro_list')
 
 // Prevenir la recarga de la pagina al enviar (submit) el formulario
-cajeroForm.addEventListener('submit', e => e.preventDefault())
+addEvent(cajeroForm, 'submit', e => e.preventDefault())
 // Vaciar la lista de retiro de dinero y el mensaje de texto
-cajeroForm.addEventListener('reset', () => reset())
+addEvent(cajeroForm, 'reset', () => reset())
 
-stepUpButton.addEventListener('click', () => dinero_input.stepUp())
-stepDownButton.addEventListener('click', () => dinero_input.stepDown())
+addEvent(getById('step_up_btn'), 'click', () => dinero_input.stepUp())
+addEvent(getById('step_down_btn'), 'click', () => dinero_input.stepDown())
 
 const retirar = () => {
 	// Vaciar la lista de retiro de dinero ante un nuevo retiro
@@ -33,7 +28,7 @@ const retirar = () => {
 		// Si cantidad > 0 -> true, es posible retirar billetes
 		// Si cantidad == 0 -> false
 		if (cantidad) {
-			retiroTotal.push(`${cantidad} x ${billete}`)
+			retiroTotal.push(`$${billete / 1000}.000 x ${cantidad}`)
 			// Despues de retirar, ahora el dinero es el residuo de la división
 			dinero %= billete
 		}
@@ -41,13 +36,15 @@ const retirar = () => {
 		if (!dinero) break
 	}
 
-	textMsg.innerText = 'Retiro Completado. Billetes:'
+	cambiarTexto('Retiro Completado. Billetes:')
 	// Agregar los billetes del arreglo a la lista
 	addListItems(retiroList, retiroTotal)
 }
 
+const cambiarTexto = text => getById('text_msg').innerText = text
+
 const reset = () => {
-	textMsg.innerText = ''
+	cambiarTexto('')
 	clearList(retiroList)
 }
 

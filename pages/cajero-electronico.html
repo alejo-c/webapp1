@@ -23,12 +23,12 @@
 			<h2 class="title">Retirar Dinero</h2>
 
 			<form id="cajero_form" onsubmit="retirar()">
-				<label for="dinero_input">Cantidad ($ multiplo de 5.000):</label>
+				<p for="dinero_input">Cantidad (Múltiplo de $5.000):</p>
 				<div id="custom">
-					<button type="button" id="step_down_button" class="spinner">-</button>
+					<button type="button" id="step_down_btn" class="spinner">-</button>
 					<input type="number" id="dinero_input" placeholder="0" min="50000" max="1200000"
 						step="5000" required>
-					<button type="button" id="step_up_button" class="spinner">+</button>
+					<button type="button" id="step_up_btn" class="spinner">+</button>
 				</div>
 				<button type="submit">Retirar</button>
 				<button type="reset">Borrar</button>
