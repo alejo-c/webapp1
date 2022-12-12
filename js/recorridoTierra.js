@@ -1,19 +1,20 @@
-const tierraForm = document.getElementById('tierra_form')
+const tierraForm = getById('tierra_form')
 
 // Prevenir la recarga de la pagina al enviar (submit) el formulario
-tierraForm.addEventListener('submit', e => e.preventDefault())
-tierraForm.addEventListener('reset', () => setResultText())
+addEvent(tierraForm, 'submit', e => e.preventDefault())
+addEvent(tierraForm, 'reset', () => setResultText(''))
 
 const calcularRecorridoTierra = () => {
-	setResultText()
+	setResultText('')
 
 	// Variables del Sistema Horario [H]
-	let horasH = document.getElementById('horas_input').value, // string
-		minutosH = document.getElementById('minutos_input').value, // string
-		segundosH = document.getElementById('segundos_input').value // string
+	let horasH = getById('horas_input').value, // string
+		minutosH = getById('minutos_input').value, // string
+		segundosH = getById('segundos_input').value // string
 
 	// Si todos los valores de las cadenas de caracteres son nulos, detener la función
-	if (!horasH && !minutosH && !segundosH) return
+	if (!horasH && !minutosH && !segundosH)
+		return setResultText('Error: Ingrese algún valor')
 
 	// Si la cadena de caracteres tiene algún caracter, convertirlo a entero
 	// Si está vacía se le asina cero (0)
@@ -44,9 +45,9 @@ const calcularRecorridoTierra = () => {
 	)
 }
 
-const setResultText = (err_msg = '', grados = '', minutos = '', segundos = '') => {
-	document.getElementById('err_msg').innerText = err_msg
-	document.getElementById('grados_ss').innerText = grados
-	document.getElementById('minutos_ss').innerText = minutos
-	document.getElementById('segundos_ss').innerText = segundos
+const setResultText = (err_msg, grados = '', minutos = '', segundos = '') => {
+	getById('err_msg').innerText = err_msg
+	getById('grados_ss').innerText = grados
+	getById('minutos_ss').innerText = minutos
+	getById('segundos_ss').innerText = segundos
 }
